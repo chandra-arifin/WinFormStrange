@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <RootNamespace>ZFame</RootNamespace>
+    <AssemblyName>DisplayPOSFull</AssemblyName>
+
+    <TargetFramework>net6.0-windows</TargetFramework>
+        
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <ApplicationIcon>DisplayPos.ico</ApplicationIcon>
+
+    
+    <!-- Enable single file 
+    <PublishSingleFile>true</PublishSingleFile>
+    
+    Determine self-contained or framework-dependent 
+    <SelfContained>true</SelfContained>
+
+    The OS and CPU type you are targeting 
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+
+    Enable use of assemby trimming - only supported for self-contained apps 
+    <PublishTrimmed>true</PublishTrimmed>
+    -->
+
+    
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Settings.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+</Project>
